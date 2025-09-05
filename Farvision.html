@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Application Form</title>
+	<meta property="og:title" content="Tehan IRIS Application Form" />
+	<meta property="og:description" content="Apply Online in Tehan IRIS." />
+	<meta property="og:image" content="https://iili.io/FXsIepf.md.png" />
+	<meta property="og:url" content="www.trehaniris.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        crossorigin="anonymous"
+    />
+    <style>
+        /* General Styles & Body */
+        body {
+            background-color: #f0f4f8; /* Soft gray background */
+            color: #334e68; /* Dark, professional text color */
+            font-family: 'Poppins', sans-serif, Arial, sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 50px 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            width: 100%;
+        }
+
+        /* Headings & Text */
+        h1, h2, h3 {
+            color: #1e3a8a; /* Deep blue for headers */
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .company-description {
+            font-size: 1.1rem;
+            color: #667e9c;
+            text-align: center;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .stats-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin: 15px;
+        }
+
+        .stat-item .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat-item .label {
+            font-size: 0.95rem;
+            color: #8c98a5;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        label {
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #334e68;
+            display: block;
+        }
+
+        .form-text {
+            color: #a0aec0;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        /* Form Controls */
+        .form-control,
+        .form-select,
+        textarea.form-control {
+            background-color: #f9fbfd;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            color: #334e68;
+            font-size: 1rem;
+            padding: 0.85rem 1.25rem;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+        .form-control:focus,
+        .form-select:focus,
+        textarea.form-control:focus {
+            border-color: #3b82f6;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+            background-color: #ffffff;
+        }
+
+        /* Checkbox & Radio */
+        .form-check-label {
+            font-weight: 500;
+            color: #555;
+            cursor: pointer;
+        }
+        .form-check-input {
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+        }
+        .form-check-input:checked {
+            background-color: #3b82f6;
+            border-color: #3b82f6;
+        }
+        .form-check-input:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+        }
+
+        /* Submit Button */
+        button[type="submit"] {
+            margin-top: 4rem;
+            background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+            border: none;
+            border-radius: 16px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.15rem;
+            padding: 18px 0;
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.3);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            box-shadow: 0 12px 25px rgba(30, 58, 138, 0.4);
+            transform: translateY(-3px);
+            background: linear-gradient(45deg, #3b82f6, #1e3a8a);
+        }
+        button[type="submit"]:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
+        }
+
+        /* Grid & Spacing */
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem 2rem;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .dynamic-input-group {
+            transition: all 0.4s ease-in-out;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 60px 30px;
+            color: #1e3a8a;
+            font-size: 1.4rem;
+        }
+        .success-message svg {
+            width: 80px;
+            height: 80px;
+            fill: #10b981;
+            margin-bottom: 20px;
+        }
+        .success-message p {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #667e9c;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 767px) {
+            body {
+                padding: 20px 10px;
+            }
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .company-description {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container shadow">
+        <div id="formContent">
+            <h1>Why should you Join us?</h1>
+
+            <p class="company-description">
+                With over seven decades of experience, we have delivered major projects including key Delhi landmarks and luxury residential properties, driven by innovative designs, modern techniques and sustainability.
+            </p>
+
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="number">100<sup>+</sup></div>
+                    <div class="label">Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">70<sup>+</sup></div>
+                    <div class="label">Years of experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">15<sup>+</sup></div>
+                    <div class="label">Lakh sq. m. delivered</div>
+                </div>
+            </div>
+
+            <h3>Please fill the form to Apply:</h3>
+
+            <form id="applicationForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfzvx6e_gu1hbU6oyo7D5SNY6A2ztcUsmmI9qkfkquon1fRvw/formResponse" method="post" target="response_iframe" novalidate>
+                <input type="hidden" name="entry.1695755989" value="TS0002" />
+                <input type="hidden" name="entry.2085988465" value="Agreed" />
+                <input type="hidden" id="resume_link_hidden" name="entry.1633387915" value="" />
+                <input type="hidden" id="department_hidden" name="entry.2111239570" value="" />
+                <input type="hidden" id="industry_hidden" name="entry.1431342906" value="" />
+
+                <h2>Section 1:<br>Basic Information</h2>
+
+                <div class="form-row">
+                    <div>
+                        <label for="name">Name <span class="text-danger">*</span></label>
+                        <input type="text" id="name" name="entry.1709636960" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="email">Email Address <span class="text-danger">*</span></label>
+                        <input type="email" id="email" name="entry.1561874872" required class="form-control" />
+                    </div>
+
+                    <div>
+                        <label for="phone">Phone Number <span class="text-danger">*</span></label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="entry.1168668188"
+                            pattern="^\+?[0-9\s\-]{7,15}$"
+                            required
+                            class="form-control"
+                            placeholder="e.g., 9876543210"
+                        />
+                        <div class="form-text">
+                            Enter your 10-digit primary phone number.
+                        </div>
+                    </div>
+                    <div>
+                        <label for="gender">Gender <span class="text-danger">*</span></label>
+                        <select id="gender" name="entry.1917535217" required class="form-select">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Non-Binary</option>
+                            <option>Prefer Not To Say</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="experience">Total Work Experience (Years) <span class="text-danger">*</span></label>
+                        <input
+                            type="number"
+                            id="experience"
+                            name="entry.1943168057"
+                            min="0"
+                            step="0.1"
+                            required
+                            class="form-control"
+                        />
+                    </div>
+                    <div>
+                        <label for="current_employer">Current Employer <span class="text-danger">*</span></label>
+                        <input type="text" id="current_employer" name="entry.678338926" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="current_designation">Current Designation <span class="text-danger">*</span></label>
+                        <input type="text" id="current_designation" name="entry.1338918414" required class="form-control" />
+                    </div>
+                    
+                    <div>
+                        <label for="department">Department <span class="text-danger">*</span></label>
+                        <select id="department" class="form-select" required>
+                            <option value="" disabled selected>Select Department</option>
+                            <option value="Legal & Compliance">Legal</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div id="other-department-group" class="dynamic-input-group" style="display:none;">
+                        <label for="other_department_input">Other Department <span class="text-danger">*</span></label>
+                        <input type="text" id="other_department_input" class="form-control" />
+                    </div>
+
+                    <div>
+                        <label>Industry <span class="text-danger">*</span></label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="industryRadio" id="industryRealEstate" value="Real Estate" required>
+                            <label class="form-check-label" for="industryRealEstate">Real Estate</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="industryRadio" id="industryFacility" value="Facility" required>
+                            <label class="form-check-label" for="industryFacility">Facility</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="industryRadio" id="industryOther" value="Other" required>
+                            <label class="form-check-label" for="industryOther">Other</label>
+                        </div>
+                        <div id="other-industry-group" class="dynamic-input-group" style="display:none; margin-top: 1rem;">
+                            <label for="other_industry_input">Other Industry <span class="text-danger">*</span></label>
+                            <input type="text" id="other_industry_input" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="current_ctc">Current CTC (in LPA) <span class="text-danger">*</span></label>
+                        <input
+                            type="number"
+                            id="current_ctc"
+                            name="entry.685681676"
+                            min="0.01"
+                            step="0.01"
+                            required
+                            class="form-control"
+                        />
+                        <div class="form-text">Enter in Lakhs Per Annum (e.g., 12.5)</div>
+                    </div>
+
+
+
+
+                    <div>
+                        <label for="expected_ctc">Expected CTC (in LPA) <span class="text-danger">*</span></label>
+                        <input
+                            type="number"
+                            id="expected_ctc"
+                            name="entry.70303717"
+                            min="0.01"
+                            step="0.01"
+                            required
+                            class="form-control"
+                        />
+                        <div class="form-text">Enter in Lakhs Per Annum (e.g., 15.0)</div>
+                    </div>
+
+                    <div>
+                        <label for="notice_period">Notice Period (Days) <span class="text-danger">*</span></label>
+                        <input
+                            type="number"
+                            id="notice_period"
+                            name="entry.177380997"
+                            min="0"
+                            required
+                            class="form-control"
+                        />
+                        <div class="form-text">Enter number of days (e.g., 30, 60, 90)</div>
+                    </div>
+                    
+                    <div>
+                        <label for="current_state">Current City <span class="text-danger">*</span></label>
+                        <input
+                            list="indian_states_list"
+                            id="current_state"
+                            name="entry.1297555408"
+                            required
+                            class="form-control"
+                            placeholder="Search or select your state"
+                        />
+                        <datalist id="indian_states_list">
+                            <option value="Delhi">
+                            <option value="Gurugram">
+                            <option value="Noida">
+                            <option value="Other">
+                        </datalist>
+                    </div>
+
+                    <div class="full-width">
+                        <label for="key_skills">Key Skills</label>
+                        <textarea
+                            id="key_skills"
+                            name="entry.1440592549"
+                            rows="3"
+                            placeholder="List skills separated by commas"
+                            class="form-control"
+                        ></textarea>
+                    </div>
+
+                    <div class="full-width">
+                        <label for="remarks">Remarks / Additional info</label>
+                        <textarea
+                            id="remarks"
+                            name="entry.2088598462"
+                            rows="3"
+                            placeholder="Preferred locations, role interests, etc."
+                            class="form-control"
+                        ></textarea>
+                    </div>
+
+                    <div class="full-width">
+                        <label for="resumeFile">Upload Resume (PDF only)</label>
+                        <input type="file" id="resumeFile" accept="application/pdf" class="form-control" />
+                        <div class="form-text">
+                            Please upload your resume in PDF format.
+                        </div>
+                        <div id="uploadStatus" class="mt-2" style="font-weight: bold;"></div>
+                        <div id="fileLink" class="mt-1"></div>
+                    </div>
+
+                </div>
+
+                <h2>Section 2:<br>Declarations and Permissions</h2>
+
+                <p style="font-style: italic; font-size: 0.95rem; color: #555;">
+                    By submitting this form, I declare that the information provided is true and accurate to the best of my knowledge. I understand that any false information may lead to rejection or termination.
+                </p>
+
+                <div class="form-check mt-3">
+                    <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="consent_data_usage"
+                        name="entry.1250886122"
+			value="Agreed"
+                        required
+                    />
+                    <label class="form-check-label" for="consent_data_usage">
+                        I consent to Trehan Group collecting, processing, and storing my personal data provided in this form for recruitment purposes. Data retention: 1 year, unless deletion requested.
+                    </label>
+                </div>
+
+                <div class="form-check mt-3">
+                    <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="consent_email_comm"
+                        name="entry.1517191024"
+			value="Agreed"
+                        required
+                    />
+                    <label class="form-check-label" for="consent_email_comm">
+                        I agree to receive communications via email regarding application status, interview schedules, and job opportunities.
+                    </label>
+                </div>
+
+                <div class="form-check mt-3">
+                    <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="consent_sms_comm"
+                        name="entry.331866276"
+			value="Agreed"
+                        required
+                    />
+                    <label class="form-check-label" for="consent_sms_comm">
+                        I agree to receive SMS/mobile communications regarding application status, interview schedules, and jobs.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-4" title="Submit your application form">
+                    Submit Application
+                </button>
+            </form>
+        </div>
+
+        <div id="successMessage" class="success-message">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+            </svg>
+            <h2>Thank You!</h2>
+            <p>Your response has been recorded. Someone from the HR team will connect with you shortly.</p>
+        </div>
+    </main>
+
+    <iframe name="response_iframe" id="responseIframe" style="display: none;"></iframe>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"
+    ></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('applicationForm');
+            const formContent = document.getElementById('formContent');
+            const successMessage = document.getElementById('successMessage');
+            const responseIframe = document.getElementById('responseIframe');
+            const submitButton = form.querySelector('button[type="submit"]');
+
+            const nameInput = document.getElementById('name');
+            const departmentSelect = document.getElementById('department');
+            const otherDepartmentInput = document.getElementById('other_department_input');
+            const otherDepartmentGroup = document.getElementById('other-department-group');
+            const industryRadios = document.querySelectorAll('input[name="industryRadio"]');
+            const otherIndustryInput = document.getElementById('other_industry_input');
+            const otherIndustryGroup = document.getElementById('other-industry-group');
+            const departmentHidden = document.getElementById('department_hidden');
+            const industryHidden = document.getElementById('industry_hidden');
+
+            const resumeFileField = document.getElementById('resumeFile');
+            const resumeLinkHiddenField = document.getElementById('resume_link_hidden');
+            const uploadStatusDiv = document.getElementById('uploadStatus');
+            const fileLinkDiv = document.getElementById('fileLink');
+
+            // Function to auto-format name input
+            nameInput.addEventListener('input', function() {
+                const parts = nameInput.value.split(' ');
+                const formattedParts = parts.map(part => {
+                    return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+                });
+                nameInput.value = formattedParts.join(' ');
+            });
+
+            // Functionality for "Other" department
+            departmentSelect.addEventListener('change', function() {
+                if (departmentSelect.value === 'Other') {
+                    otherDepartmentGroup.style.display = 'block';
+                    otherDepartmentInput.setAttribute('required', 'true');
+                } else {
+                    otherDepartmentGroup.style.display = 'none';
+                    otherDepartmentInput.removeAttribute('required');
+                    otherDepartmentInput.value = '';
+                }
+            });
+
+            // Functionality for "Other" industry
+            industryRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'Other') {
+                        otherIndustryGroup.style.display = 'block';
+                        otherIndustryInput.setAttribute('required', 'true');
+                    } else {
+                        otherIndustryGroup.style.display = 'none';
+                        otherIndustryInput.removeAttribute('required');
+                        otherIndustryInput.value = '';
+                    }
+                });
+            });
+
+            // Async function to handle file upload
+            async function handleFileUpload() {
+                const file = resumeFileField.files[0];
+                if (!file) {
+                    return { status: 'success', message: 'No file uploaded, skipping.', url: '' };
+                }
+
+                if (file.type !== "application/pdf") {
+                    uploadStatusDiv.innerText = "❌ Only PDF files are allowed!";
+                    return { status: 'error', message: 'Invalid file type.' };
+                }
+
+                uploadStatusDiv.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Uploading...`;
+                
+                return new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = async function(evt) {
+                        const base64Data = evt.target.result.split(",")[1];
+
+                        const formData = new URLSearchParams();
+                        formData.append("action", "upload");
+                        formData.append("requisitionId", form.querySelector('[name="entry.1695755989"]').value);
+                        formData.append("name", form.querySelector('[name="entry.1709636960"]').value);
+                        formData.append("mobile", form.querySelector('[name="entry.1168668188"]').value);
+                        formData.append("data", base64Data);
+                        formData.append("filename", file.name);
+                        formData.append("mimeType", file.type);
+
+                        try {
+                            const res = await fetch("https://script.google.com/macros/s/AKfycbyYPZpa-MN60tmu8fFTTUnRGs974G4lnTiwKxLnzsvUuh9yBpMjbsjiizVyV5cX9VDk/exec", { method: "POST", body: formData });
+                            const json = await res.json();
+
+                            if (json.status === "success") {
+                                uploadStatusDiv.innerText = "✅ Upload successful!";
+                                fileLinkDiv.innerHTML = `🔗 <a href="${json.url}" target="_blank">${json.fileName}</a>`;
+                                resolve({ status: 'success', url: json.url });
+                            } else {
+                                uploadStatusDiv.innerText = "❌ " + json.message;
+                                fileLinkDiv.innerHTML = "";
+                                resolve({ status: 'error', message: json.message });
+                            }
+                        } catch (error) {
+                            uploadStatusDiv.innerText = "❌ Upload failed!";
+                            console.error('Upload Error:', error);
+                            resolve({ status: 'error', message: 'Network or server error.' });
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                // Set values for hidden fields
+                if (departmentSelect.value === 'Other') {
+                    departmentHidden.value = otherDepartmentInput.value;
+                } else {
+                    departmentHidden.value = departmentSelect.value;
+                }
+
+                const selectedIndustry = document.querySelector('input[name="industryRadio"]:checked');
+                if (selectedIndustry) {
+                    if (selectedIndustry.value === 'Other') {
+                        industryHidden.value = otherIndustryInput.value;
+                    } else {
+                        industryHidden.value = selectedIndustry.value;
+                    }
+                } else {
+                    industryHidden.value = '';
+                }
+
+                if (!form.checkValidity()) {
+                    event.stopPropagation();
+                    form.classList.add('was-validated');
+                    return;
+                }
+
+                if (resumeFileField.files.length > 0 && resumeFileField.files[0].type !== "application/pdf") {
+                    uploadStatusDiv.innerText = "❌ Please select a PDF file.";
+                    return;
+                }
+
+                submitButton.disabled = true;
+                submitButton.innerHTML = `
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Submitting...
+                `;
+                
+                const uploadResult = await handleFileUpload();
+
+                if (uploadResult.status === 'success') {
+                    resumeLinkHiddenField.value = uploadResult.url;
+                    
+                    responseIframe.onload = function() {
+                        console.log('Google Form submission complete via iframe.');
+
+                        formContent.style.display = 'none';
+                        successMessage.style.display = 'block';
+
+                        form.reset();
+                        form.classList.remove('was-validated');
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = 'Submit Application';
+                    };
+                    
+                    form.submit();
+                } else {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Submit Application';
+                    console.error('Form submission halted due to failed file upload.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
